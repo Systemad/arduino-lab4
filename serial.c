@@ -6,7 +6,8 @@
 
 static FILE uart_stdout = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 
-void uart_init(void) {
+void uart_init(void)
+{
 	UBRR0H = (unsigned char)(UBRR >> 8);
 	UBRR0L = (unsigned char)(UBRR);
 	UCSR0A = 0;
@@ -16,8 +17,10 @@ void uart_init(void) {
 	stdout = &uart_stdout;
 }
 
-int uart_putchar(char chr, FILE *stream) {
-	if (chr == '\n') {
+int uart_putchar(char chr, FILE *stream)
+{
+	if (chr == '\n')
+	{
 		uart_putchar('\r', NULL);
 	}
 	while (!(UCSR0A & (1 << UDRE0)))
@@ -26,9 +29,9 @@ int uart_putchar(char chr, FILE *stream) {
 	return 0;
 }
 
-char uart_getchar(void) {
+char uart_getchar(void)
+{
 	while (!(UCSR0A & (1 << RXC0)))
 		;
 	return UDR0;
 }
-

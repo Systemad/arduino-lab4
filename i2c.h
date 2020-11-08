@@ -2,9 +2,8 @@
 #define _I2C_H_
 
 // I2C Read/Write flags
-#define I2C_R	1
-#define I2C_W	0
-
+#define I2C_R 1
+#define I2C_W 0
 
 void i2c_init(void);
 

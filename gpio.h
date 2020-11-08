@@ -11,4 +11,3 @@ uint8_t blink(void);
 uint8_t led_off(void);
 
 #endif // _GPIO_H_
-

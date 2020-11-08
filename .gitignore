@@ -12,6 +12,7 @@
 *.map
 *.exp
 *.P
+*.lss
 
 # Precompiled Headers
 *.gch

@@ -11,15 +11,16 @@
 #include "serial.h"
 #include "timer.h"
 
-
-void main (void) {
+void main(void)
+{
 
 	i2c_init();
-	uart_init();	
+	uart_init();
 
 	sei();
 
-	while (1) {
+	while (1)
+	{
 
 		eeprom_write_byte(0x10, 'd');
 		eeprom_wait_until_write_complete();
@@ -39,8 +40,7 @@ void main (void) {
 		char ByteOfData3 = eeprom_read_byte(0x12);
 		printf("%c", ByteOfData3);
 		printf("\n");
-		
-		_delay_ms(1000);
 
+		_delay_ms(1000);
 	}
 }
